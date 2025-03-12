@@ -1,22 +1,39 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import {Picture} from 'astro:assets';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const {src, alt, texte} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinémagny</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans font-righteous text-black ">
+    <Header />
+    <section class="relative w-full h-70 lg:h-200 flex items-center justify-center text-white">
+        <!-- Image de fond avec overlay -->
+        <div class="absolute inset-0 bg-cover bg-center">
+            <Picture class="lg:w-full lg:h-200"
+            formats={['avif', 'webp']} 
+            src={src}
+            alt={alt}
+            />
+        </div>
+        <div class="absolute h-80 lg:h-200 inset-0 bg-gradient-to-t from-white to-transparent"></div>
+    
+        <!-- Contenu -->
+        <div class="relative px-6 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-righteous">{texte}</h1>
+        </div>
+    </section>
+    
+    <slot />
+    <Footer />
+</body>
+</html>

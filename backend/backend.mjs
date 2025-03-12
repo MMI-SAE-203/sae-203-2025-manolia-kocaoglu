@@ -1,3 +1,4 @@
+import { record } from 'astro:schema';
 import Pocketbase from 'pocketbase';
 const pb = new Pocketbase('http://127.0.0.1:8090');
 
@@ -36,7 +37,7 @@ export async function getInviteById(id) {
 }
 
 export async function getActiviteByAnimateurId(id) {
-    const records = await pb.collection('activite').getFullList({filter: `animateur.nom ='${id}'`, expand: 'invite'});
+    const records = await pb.collection('activite').getFullList({filter: `animateur.id ='${id}'`, expand: 'invite'});
     return records;
 }
 
@@ -61,3 +62,27 @@ export async function UpdateInviteById(id, data) {
     const record = await pb.collection('invite').updateOne(id, data);
     return record;
 }
+
+export async function getActivites(){
+    try {
+        let records = await pb.collection('activite').getFullList();
+        records = records.map((record) => {
+        record.img = pb.files.getURL(record, record.image);
+        return record;});
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}
+
+export async function getFilmsByType(type){
+    try {
+        let records = await pb.collection('film').getFullList({filter : `type_film = '${type}'`});
+        records = records.map((record) => {
+        record.img = pb.files.getURL(record, record.affiche);
+        return record;});
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}

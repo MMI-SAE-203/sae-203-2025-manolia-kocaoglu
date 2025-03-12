@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getFilmsByType } from "../../../backend/backend.mjs";
+import imagehero from "../../assets/img/header/affiche.webp";
+import CarouselFilm from "../../components/CarouselFilm.astro";
+import './src/styles/global.css'
+
+const animations = await getFilmsByType("animation");
+const documentaires = await getFilmsByType("documentaires");
+const courts_metrages = await getFilmsByType("courts_metrages");
+const longs_metrages = await getFilmsByType("longs_metrages");
+
+---
+
+<Layout src={imagehero} alt="" texte="cacacacacacacacaaccacc">
+    <CarouselFilm items={longs_metrages}/>
+    <CarouselFilm items={courts_metrages}/>
+    <CarouselFilm items={documentaires}/>
+    <CarouselFilm items={animations}/>
+</Layout>

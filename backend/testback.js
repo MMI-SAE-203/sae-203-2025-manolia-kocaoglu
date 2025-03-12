@@ -65,7 +65,7 @@ try {
 }
 
 try {
-    const activite = await getActiviteByAnimateurId('LE NOM D UN ANIMATEUR') ;
+    const activite = await getActiviteByAnimateurName('LE NOM D UN ANIMATEUR') ;
     console.log(activite) ;
 }
 catch (e) {

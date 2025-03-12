@@ -7,13 +7,41 @@ import Layout from '../layouts/Layout.astro';
 
  import { getActivites } from '../../backend/backend.mjs';
  const activites = await getActivites();
+ import ButtonInfo from '../components/ButtonInfo.astro';
+ import { Picture } from 'astro:assets';
+ import imagecool from "../assets/img/header/billet.webp";
+ import Triangle from "../assets/img/header/triangle.svg";
+ import CarouselAccueil from "../components/CarouselAccueil.astro";
+ import { getPartenaire } from '../../backend/backend.mjs';
  
+ const partenaires = await getPartenaire();
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout src={imagehero} alt="" texte="Bienvenue à Cinémagny">
-    <h2 class="text-center text-2xl font-bold text-blue-900 mt-15">les evenement</h2>
+    <p class="mt-20 p-5" >Cinemagny est un festival unique dédié à la célébration du 7ᵉ art à travers le prisme de l’écologie et de l’innovation. Situé à Giromagny, entre montagnes et forêts, le festival vous invite à plonger dans un monde cinématographique riche et diversifié, où films indépendants, documentaires et animations se rencontrent pour éveiller vos sens et vos consciences.
+       <br> <br> Du 12 au 16 novembre 2025, Cinemagny mettra en lumière les talents émergents du cinéma indépendant, tout en rendant hommage aux figures emblématiques du cinéma engagé. Des avant-premières exclusives, des rétrospectives, et des rencontres avec des réalisateurs passionnés feront de cet événement un moment incontournable pour les cinéphiles, les professionnels de l’industrie, et le grand public.</p>
+    <h2 class="text-center text-2xl font-bold text-black mt-15">les evenement</h2>
     <Carousel items={activites} />
+    <div class="flex justify-center mb-10 mt-5">
+         <ButtonInfo url="/evenements" text="Voir tous les événements"  />
+    </div>
+    <p class="p-5">Dans une démarche écoresponsable, nous vous invitons à participer à des projections, ateliers et échanges autour du cinéma, dans un cadre respectueux de la nature.
+        Rejoignez-nous pour découvrir des œuvres innovantes et vivre une expérience enrichissante à la croisée du cinéma et de l'engagement écologique.</p>
+        <h2 class="flex justify-center mt-10 mb-5">Achetez vos Billets</h2>
+        <div class="flex justify-center">
+            <div class="relative w-40 h-auto">
+            <!-- Triangle centré -->
+            <Triangle class="animate-spin absolute inset-0 m-auto mt-7 [transform:rotateY(180deg)]" />
+            
+            <!-- Image -->
+            <Picture src={imagecool} alt="" class="w-40 h-auto" />
+            </div>
+        </div>
+
+  
+        <h2 class="mt-20 " >Nos partenaires</h2>
+        <CarouselAccueil items={partenaires}/>
 </Layout>

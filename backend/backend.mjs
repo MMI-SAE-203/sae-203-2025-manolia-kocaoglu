@@ -86,3 +86,15 @@ export async function getFilmsByType(type){
     console.error(error);
     return [];
 }}
+
+export async function getPartenaire(){
+    try {
+        let records = await pb.collection('partenaires').getFullList();
+        records = records.map((record) => {
+        record.img = pb.files.getURL(record, record.image);
+        return record;});
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}

@@ -15,6 +15,10 @@ console.log(invite);
 <Layout src={imagehero} alt="" texte="Nos invités">
     <h1 class="mt-20 p-5">{invite.prenom} {invite.nom} </h1>
     <h2 class=" p-5">{invite.role}</h2>
-    <p class=" p-5">{invite.biographie}</p>
+    <div class="lg:flex lg:mt-10">
+    <div class="w-80 lg:flex lg:w-200">
     <img class="p-5" src={invite.img} alt="">
+    </div> 
+    <p class="text-left p-5">{invite.biographie}</p>
+    </div>
 </Layout>

@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+ import './src/styles/global.css'
+import Contact from '../../components/Contact.astro';
+
+ import imagehero from "../../assets/img/header/contact.webp"
+---
+
+<Layout src={imagehero} alt="" texte="Contacts">
+    <div class="mt-20">
+    <Contact/>
+    </div>
+    <p class="p-5 mt-10">festival@cinemagny.fr <br> 03 xx xx xx xx <br> Giromagny, 90 200</p>
+</Layout>

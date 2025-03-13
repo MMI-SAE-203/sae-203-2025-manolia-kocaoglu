@@ -3,7 +3,7 @@ const { ...items } = Astro.props;
 console.log(items);
 
 ---
-<div class="w-full bg-gray-50 p-3 flex flex-col gap-1 mt-10 mb-10 ">
+<div class="w-full lg:w-160 bg-gray-50 p-3 flex flex-col gap-1 mt-10 mb-10 justify-center">
     <div class="duration-500 contrast-50 h-80 bg-gradient-to-bl from-black via-orange-900 to-sky-800  hover:contrast-100">
         <img class="w-full h-full object-cover" src={items.img} alt="">
     </div>

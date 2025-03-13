@@ -1,5 +1,5 @@
 import Pocketbase from 'pocketbase';
-const pb = new Pocketbase('http://127.0.0.1:8090');
+const pb = new Pocketbase('https://sae203.manolia-kocaoglu.fr');
 
 export async function getAllMoviesSortedByDate() {
     const records = await pb.collection('film').getFullList({

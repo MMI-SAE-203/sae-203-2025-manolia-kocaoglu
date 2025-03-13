@@ -145,3 +145,13 @@ export async function getInvite(){
     return [];
 }}
 
+export async function getOneInvite(id){
+    try {
+        let records = await pb.collection('invite').getOne(id);
+        records.img = pb.files.getURL(records, records.photo);
+        console.log(records);
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}

@@ -1,0 +1,21 @@
+---
+import { inviteByRole } from "../../../../backend/backend.mjs";
+import Layout from "../../../layouts/Layout.astro";
+import CardInvite from "../../../components/CardInvite.astro";
+import imagehero from "../../../assets/img/header/apropos.webp";
+import './src/styles/global.css'
+
+const { role } = Astro.params;
+
+const invites = await inviteByRole(role);
+if (!invites) {
+  return Astro.redirect('/invite')
+}
+---
+<Layout src={imagehero} alt="" texte=`Nos ${role}s`>
+<div class="p-5 lg:grid lg:grid-cols-2 lg:gap-8 justify-center">
+    {invites.map((invite) => (
+            <CardInvite {...invite} />
+            ))}
+    </div>
+</Layout>

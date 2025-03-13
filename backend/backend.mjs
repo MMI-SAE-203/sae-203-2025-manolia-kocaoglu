@@ -149,6 +149,18 @@ export async function getOneInvite(id){
     try {
         let records = await pb.collection('invite').getOne(id);
         records.img = pb.files.getURL(records, records.photo);
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}
+
+export async function inviteByRole (role){
+    try {
+        let records = await pb.collection('invite').getFullList({filter : `role = '${role}'`});
+        records = records.map((record) => {
+        record.img = pb.files.getURL(record, record.photo);
+        return record;});
         console.log(records);
         return records;}
  catch (error) {

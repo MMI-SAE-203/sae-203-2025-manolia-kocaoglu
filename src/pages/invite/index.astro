@@ -12,6 +12,42 @@ import CardInvite from '../../components/CardInvite.astro';
     <p class="mt-20 p-5" >Cinemagny est un festival unique dédié à la célébration du 7ᵉ art. À travers ce festival, venez découvrir nos invités d'honneur.</p>
     <h2 class="mt-10 p-5">Nos invités d'honneur pour cette édition de Cinémagny</h2>
     <p class="p-5">Pour cette édition de Cinémagny, nous avons l'honneur d'inviter quatre personnes ayants participés aux films que nous allons diffuser. Voilà nos invités les plus prisés.</p>
+    <a href="invite/role/acteur"
+  
+>
+  <span
+    class= "w-40 flex items-center gap-2 px-8 py-3 bg-cyan-700 text-white rounded-[14px] bg-gradient-to-t from-cyan-700 to-cyan-900"
+  >
+      <path
+        d="M8 13V9m-2 2h4m5-2v.001M18 12v.001m4-.334v5.243a3.09 3.09 0 0 1-5.854 1.382L16 18a3.618 3.618 0 0 0-3.236-2h-1.528c-1.37 0-2.623.774-3.236 2l-.146.292A3.09 3.09 0 0 1 2 16.91v-5.243A6.667 6.667 0 0 1 8.667 5h6.666A6.667 6.667 0 0 1 22 11.667Z"
+      ></path></svg
+    >Acteurs</span
+  >
+</a>
+<a href="invite/role/animateur"
+  class="relative cursor-pointer opacity-90 hover:opacity-100 transition-opacity p-[2px] bg-black rounded-[16px] bg-gradient-to-t from-cyan-900 to-cyan-700 active:scale-95"
+>
+  <span
+    class= "w-40 flex items-center gap-2 px-8 py-3 bg-cyan-700 text-white rounded-[14px] bg-gradient-to-t from-cyan-700 to-cyan-900"
+  >
+      <path
+        d="M8 13V9m-2 2h4m5-2v.001M18 12v.001m4-.334v5.243a3.09 3.09 0 0 1-5.854 1.382L16 18a3.618 3.618 0 0 0-3.236-2h-1.528c-1.37 0-2.623.774-3.236 2l-.146.292A3.09 3.09 0 0 1 2 16.91v-5.243A6.667 6.667 0 0 1 8.667 5h6.666A6.667 6.667 0 0 1 22 11.667Z"
+      ></path></svg
+    >Animateurs</span
+  >
+</a>
+<a href="invite/role/réalisateur"
+  class="relative cursor-pointer opacity-90 hover:opacity-100 transition-opacity p-[2px] bg-black rounded-[16px] bg-gradient-to-t from-cyan-900 to-cyan-700 active:scale-95"
+>
+  <span
+    class= "w-40 flex items-center gap-2 px-8 py-3 bg-cyan-700 text-white rounded-[14px] bg-gradient-to-t from-cyan-700 to-cyan-900"
+  >
+      <path
+        d="M8 13V9m-2 2h4m5-2v.001M18 12v.001m4-.334v5.243a3.09 3.09 0 0 1-5.854 1.382L16 18a3.618 3.618 0 0 0-3.236-2h-1.528c-1.37 0-2.623.774-3.236 2l-.146.292A3.09 3.09 0 0 1 2 16.91v-5.243A6.667 6.667 0 0 1 8.667 5h6.666A6.667 6.667 0 0 1 22 11.667Z"
+      ></path></svg
+    >Réalisateurs</span
+  >
+</a>
 <div class="p-5 lg:grid lg:grid-cols-2 lg:gap-8 justify-center">
 {invites.map((invite) => (
         <CardInvite {...invite} />

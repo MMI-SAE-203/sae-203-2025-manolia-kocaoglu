@@ -6,9 +6,8 @@ import { getActivitesById } from './backend.mjs' ;
 import { getInviteById } from './backend.mjs' ;
 import { getActiviteByAnimateurId } from './backend.mjs' ;
 import { getActiviteByAnimateurName } from './backend.mjs' ;
+import { addFilm } from './backend.mjs' ;
 import { UpdateFilmById } from './backend.mjs' ;
-import { UpdateActivitesById } from './backend.mjs' ;
-import { UpdateInviteById } from './backend.mjs' ;
 
 try {
     const movies = await getAllMoviesSortedByDate() ;
@@ -33,7 +32,7 @@ catch (e) {
 }
 
 try {
-    const film = await getFilmById('ID D UN FILM') ;
+    const film = await getFilmById('1blg3ivorz2ef09') ;
     console.log(film) ;
 }
 catch (e) {
@@ -41,7 +40,7 @@ catch (e) {
 }
 
 try {
-    const activite = await getActivitesById('ID D UNE ACTIVITE') ;
+    const activite = await getActivitesById('b942x9idd00a21o') ;
     console.log(activite) ;
 }
 catch (e) {
@@ -49,7 +48,7 @@ catch (e) {
 }
 
 try {
-    const invite = await getInviteById('ID D UN INVITE') ;
+    const invite = await getInviteById('n826g1l9o151u3j') ;
     console.log(invite) ;
 }
 catch (e) {
@@ -58,16 +57,31 @@ catch (e) {
    
 
 try {
-    const activite = await getActiviteByAnimateurId('ID D UN ANIMATEUR') ;
+    const activite = await getActiviteByAnimateurId('k8d15suq8h4t76t') ;
     console.log(activite) ;
 } catch (e) {
     console.error(e) ;
 }
 
 try {
-    const activite = await getActiviteByAnimateurName('LE NOM D UN ANIMATEUR') ;
+    const activite = await getActiviteByAnimateurName('Moore') ;
     console.log(activite) ;
 }
 catch (e) {
     console.error(e) ;
 }
+
+/*try {
+    const film = await addFilm ({titre: 'test', annee_de_sortie: 2028, genre: 'fiction', liste_acteur: 'tom cruise', description: 'un film de fiction basé sur la ficiton', affiche:''}) ;
+    console.log(film) ;
+} catch (e) {
+    console.error(e) ;
+}*/
+
+/*try {
+    const film = await UpdateFilmById ('w84vvv466x27625', {titre: 'test2', annee_de_sortie: 2029, genre: 'fiction2', liste_acteur: 'tom cruise3', description: 'un film de fiction basé sur la ficiton 2'}) ;
+    console.log(film) ;
+}
+catch (e) {
+    console.error(e) ;
+}*/

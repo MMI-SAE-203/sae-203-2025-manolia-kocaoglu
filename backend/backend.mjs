@@ -1,4 +1,3 @@
-import { record } from 'astro:schema';
 import Pocketbase from 'pocketbase';
 const pb = new Pocketbase('http://127.0.0.1:8090');
 
@@ -49,17 +48,17 @@ export async function getActiviteByAnimateurName(nom) {
 }
 
 export async function UpdateFilmById(id, data) {
-    const record = await pb.collection('film').updateOne(id, data);
+    const record = await pb.collection('film').update(id, data);
     return record;
 }
 
 export async function UpdateActivitesById(id, data) {
-    const record = await pb.collection('activite').updateOne(id, data);
+    const record = await pb.collection('activite').update(id, data);
     return record;
 }
 
 export async function UpdateInviteById(id, data) {
-    const record = await pb.collection('invite').updateOne(id, data);
+    const record = await pb.collection('invite').update(id, data);
     return record;
 }
 
@@ -87,6 +86,29 @@ export async function getFilmsByType(type){
     return [];
 }}
 
+export async function addFilm(data){
+    const record = await pb.collection('film').create(data);
+    return record;
+}
+
+
+
+
+export async function addActivite(data){
+    const record = await pb.collection('activite').create(data);
+    return record;
+}
+
+export async function addInvite(data){
+    const record = await pb.collection('invite').create(data);
+    return record;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 export async function getPartenaire(){
     try {
         let records = await pb.collection('partenaires').getFullList();
@@ -110,3 +132,16 @@ export async function getProgramme(){
     console.error(error);
     return [];
 }}
+
+export async function getInvite(){
+    try {
+        let records = await pb.collection('invite').getFullList();
+        records = records.map((record) => {
+        record.img = pb.files.getURL(record, record.photo);
+        return record;});
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}
+

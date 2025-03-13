@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+ import './src/styles/global.css'
+import CardInvite from '../../components/CardInvite.astro';
+
+ import imagehero from "../../assets/img/header/apropos.webp"
+ import { getInvite } from '../../../backend/backend.mjs';
+ const invites = await getInvite();
+
+ import ButtonInfo from '../../components/ButtonInfo.astro';
+ import { Picture } from 'astro:assets';
+ import imagecool from "../assets/img/header/billet.webp";
+ import Triangle from "../assets/img/header/triangle.svg";
+ import CarouselAccueil from "../../components/CarouselAccueil.astro";
+ import { getPartenaire } from '../../../backend/backend.mjs';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout src={imagehero} alt="" texte="Nos invités">
+    <p class="mt-20 p-5" >Cinemagny est un festival unique dédié à la célébration du 7ᵉ art. À travers ce festival, venez découvrir nos invités d'honneur.</p>
+    <h2 class="mt-10 p-5">Nos invités d'honneur pour cette édition de Cinémagny</h2>
+    <p class="p-5">Pour cette édition de Cinémagny, nous avons l'honneur d'inviter quatre personnes ayants participés aux films que nous allons diffuser. Voilà nos invités les plus prisés.</p>
+<div class="p-5 lg:grid lg:grid-cols-2 lg:gap-8">
+{invites.map((invite) => (
+        <CardInvite {...invite} />
+        ))}
+</div>
+<p class="p-5">Nos invités aurons l'occasion d'animer et de présenter les activités qui seront proposées au festival. Ils seront présent pendant toute la durée de celui-ci, alors, qu'attendez vous ? Réservez vos billets dés maintenant !</p>
+</Layout>

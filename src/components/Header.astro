@@ -24,20 +24,28 @@ aria-hidden="true"
   >
     <ul class="flex mt-5 flex-col gap-4 lg:flex-row lg:mt-0 ">
       <li>
-        <a class={`block p-4 rounded-lg text-white ${currentPath === '/film' ? 'text-indigo-600 font-bold max-lg:bg-indigo-100 max-lg:rounded-lg' : ''}`} 
+        <a class={`block p-4 rounded-lg text-white ${currentPath === '/film' ? 'text-indigo-600 font-bold max-lg:bg-sky-950 max-lg:rounded-lg' : ''}`} 
         href="/film">À l'affiche</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-white" href="/programmation">Programmation</a>
+        <a class={`block p-4 rounded-lg text-white ${currentPath === '/programmation' ? 'text-indigo-600 font-bold max-lg:bg-sky-950 max-lg:rounded-lg' : ''}`}
+        href="/programmation">Programmation</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-white" href="/resources">Nos engagements</a>
+        <a class={`block p-4 rounded-lg text-white ${currentPath === '/engagement' ? 'text-indigo-600 font-bold max-lg:bg-sky-950 max-lg:rounded-lg' : ''}`}
+        href="/engagement">Nos engagements</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-white" href="/resources">À propos</a>
+        <a class={`block p-4 rounded-lg text-white ${currentPath === '/propos' ? 'text-indigo-600 font-bold max-lg:bg-sky-950 max-lg:rounded-lg' : ''}`}
+        href="/propos">À propos</a>
       </li>
       <li>
-        <a class="block p-4 rounded-lg text-white" href="/resources">Billetterie</a>
+        <a class={`block p-4 rounded-lg text-white ${currentPath === '/invite' ? 'text-indigo-600 font-bold max-lg:bg-sky-950 max-lg:rounded-lg' : ''}`} 
+        href="/invite">Nos invités</a>
+      </li>
+      <li>
+        <a class={`block p-4 rounded-lg text-white ${currentPath === '/billetterie' ? 'text-indigo-600 font-bold max-lg:bg-sky-950 max-lg:rounded-lg' : ''}`} 
+        href="/billetterie">Billetterie</a>
       </li>
     </ul>
     <div class="flex items-center justify-center gap-4 p-4 lg:absolute lg:right-0">

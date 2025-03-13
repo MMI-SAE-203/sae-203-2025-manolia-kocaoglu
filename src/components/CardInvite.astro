@@ -1,0 +1,21 @@
+---
+const { ...items } = Astro.props;
+console.log(items);
+
+---
+<div class="w-full bg-gray-50 p-3 flex flex-col gap-1 mt-10 mb-10 ">
+    <div class="duration-500 contrast-50 h-80 bg-gradient-to-bl from-black via-orange-900 to-sky-800  hover:contrast-100">
+        <img class="w-full h-full object-cover" src={items.img} alt="">
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-row justify-between">
+        <div class="flex flex-col">
+          <span class="text-xl font-bold">{items.prenom} {items.nom}</span>
+          <br>
+          <p class="text-xs text-gray-700">{items.biographie}</p>
+        </div>
+        <span class="font-bold  text-cyan-900">{items.role}</span>
+      </div>
+      <button class="hover:bg-sky-700 text-gray-50 bg-cyan-700 py-2">{items.email}</button>
+    </div>
+  </div>

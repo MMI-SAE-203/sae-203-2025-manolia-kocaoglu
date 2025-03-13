@@ -98,3 +98,15 @@ export async function getPartenaire(){
     console.error(error);
     return [];
 }}
+
+export async function getProgramme(){
+    try {
+        let records = await pb.collection('programmation').getFullList();
+        records = records.map((record) => {
+        record.img = pb.files.getURL(record, record.image);
+        return record;});
+        return records;}
+ catch (error) {
+    console.error(error);
+    return [];
+}}

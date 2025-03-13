@@ -15,13 +15,13 @@ const longs_metrages = await getFilmsByType("longs_metrages");
 <Layout src={imagehero} alt="" texte="À l'affiche">
 
 <p class="mt-25 p-5">Plongez au cœur de la programmation de Cinemagny, où des films indépendants, des documentaires captivants et des animations innovantes se rencontrent. Découvrez des œuvres uniques et inspirantes, portées par des réalisateurs émergents du monde entier, pour un festival qui célèbre la diversité et la créativité du 7ᵉ art.</p>
-    <h2 class="mt-20 " >Longs métrages</h2>
+    <h2 class="mt-20 p-5" >Longs métrages</h2>
     <CarouselFilm items={longs_metrages}/>
-    <h2 class="">Courts métrages</h2>
+    <h2 class="p-5">Courts métrages</h2>
     <CarouselFilm items={courts_metrages}/>
-    <h2 class="">Documentaires</h2>
+    <h2 class="p-5">Documentaires</h2>
     <CarouselFilm items={documentaires}/>
-    <h2 class="">Films d'animation</h2>
+    <h2 class="p-5">Films d'animation</h2>
     <div class="lg:flex">
         <CarouselFilm items={animations}/>
         <p class="ml-5 mr-5 lg:mt-10">La programmation de Cinemagny 2025 vous invite à découvrir des œuvres uniques, portées par des réalisateurs engagés et des récits qui repoussent les limites de la créativité. Des drames poignants aux documentaires inspirants, en passant par des courts-métrages captivants et des films d'animation enchanteurs, chaque projection est une opportunité de plonger dans un univers artistique riche et diversifié. Nous vous attendons pour partager ensemble ces moments de cinéma exceptionnels, où chaque film est une nouvelle fenêtre ouverte sur le monde.</p>

@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { getProgramme } from "../../../backend/backend.mjs";
+import imagehero from "../../assets/img/header/programme.webp";
+import './src/styles/global.css'
+
+const programmations = await getProgramme();
+---
+
+<Layout src={imagehero} alt="" texte="Programmation">
+    <p class="p-5 mt-20">Découvrez la diversité de la programmation de Cinemagny, où le cinéma indépendant est à l'honneur. Que vous soyez passionné par les longs métrages, fasciné par les courts métrages, ou amateur de documentaires engagés, Cinemagny vous offre un voyage à travers le 7ᵉ art, avec des œuvres innovantes et des talents émergents.</p>
+    {programmations.map((prog) => (
+        <Card {...prog} />
+    ))}
+<div class="p-5 mt-10">
+    <h2>Autres temps forts de Cinémagny</h2>
+    <br>
+    <p>En plus des projections de films, Cinemagny propose une série d'événements qui enrichiront l'expérience des festivaliers tout au long des cinq jours du festival.</p> <br>
+    <h3>Ateliers et Masterclasses</h3> <br>
+    <p>Tout au long du festival, participez à des ateliers animés par des professionnels du cinéma. Que vous soyez débutant ou cinéphile averti, ces sessions interactives vous permettront d’en apprendre plus sur les coulisses du cinéma, le processus de création d’un film indépendant, et les nouvelles tendances du secteur. Ne manquez pas la masterclass du vendredi après-midi, animée par un réalisateur primé.</p> <br>
+    <h3>Rencontres et débats</h3> <br>
+    <p>Chaque jour, nous organisons des rencontres avec les réalisateurs et les équipes des films présentés. Ces échanges se feront sous forme de tables rondes ou de séances Q&A après certaines projections. C'est une occasion unique de dialoguer avec des talents du cinéma indépendant et d’approfondir vos connaissances.</p> <br>
+    <h3>Projections en plein air</h3><br>
+    <p>Le samedi soir, vivez une expérience unique avec une projection en plein air dans un cadre naturel exceptionnel. Apportez vos couvertures et installez-vous confortablement pour une séance inoubliable sous les étoiles.</p> <br>
+    <h3>Cérémonie de clôture</h3> <br>
+    <p>Le dimanche 16 novembre 2025, clôturez en beauté avec la cérémonie de remise des prix, qui honorera les meilleurs films du festival. Un moment de célébration où le public, les réalisateurs et les invités pourront se retrouver et partager les meilleurs souvenirs du festival.</p>
+</div>
+
+<div class="flex justify-center mt-10">
+<button
+  class="cursor-pointer flex justify-center bg-cyan-800 px-3 py-2 rounded-full text-white tracking-wider shadow-xl hover:bg-cyan-800 hover:scale-105 duration-500 hover:ring-1 w-100"
+>
+ PDF du Programme
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="currentColor"
+    class="w-5 h-5 animate-bounce"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+    ></path>
+  </svg>
+</button>
+</div>
+</Layout>
